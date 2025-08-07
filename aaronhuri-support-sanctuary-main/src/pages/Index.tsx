@@ -1,10 +1,22 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Users, BookOpen, Star, ArrowRight, Play } from "lucide-react";
+import { Heart, Users, BookOpen, Star, ArrowRight, Play, ExternalLink } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [showContinueButton, setShowContinueButton] = useState(false);
+
+  useEffect(() => {
+    // Show the continue watching button after 10 seconds
+    const timer = setTimeout(() => {
+      setShowContinueButton(true);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -17,7 +29,8 @@ const Index = () => {
                 <span className="text-cyan-600"> Others</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Aaron and Huri Ministry is dedicated to strengthening, supporting, and maintaining the work of God in the hands of church leaders.              </p>
+                Rooted in Exodus 17:12, Aaron and Huri Ministry exists to “hold up the hands” of pastors so the work of God continues with strength.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg">
                   Support Our Mission
@@ -29,22 +42,38 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl">
-                <video 
-                  className="w-full h-full object-cover"
-                  autoPlay 
-                  muted 
-                  loop
-                  poster="/ministry-video.mp4"
-                >
-                  <source src="/ministry-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                    <Play className="w-8 h-8 text-cyan-600 ml-1" />
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&start=77"
+                  title="Aaron and Huri Ministry"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                
+                {/* Continue watching overlay */}
+                {showContinueButton && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <Play className="w-8 h-8 text-white ml-1" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-4">Continue Watching</h3>
+                      <p className="text-cyan-100 mb-6 max-w-sm">
+                        Watch more inspiring content from Aaron and Huri Ministry on YouTube
+                      </p>
+                      <a
+                        href="https://youtube.com/@ahministrytv4742?feature=shared"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                      >
+                        <ExternalLink className="w-5 h-5 mr-2" />
+                        Watch on YouTube
+                      </a>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -57,8 +86,8 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We support pastors in two key ways: paying children's school fees and 
-              cleaning churches to create better environments for worship and community.
+              Like Aaron and Hur who steadied Moses’ hands (Exodus 17:12), we steady pastors through two graces: 
+              covering school fees for their children and caring for God’s house by cleaning churches.
             </p>
           </div>
 
@@ -103,8 +132,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Impact</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Through your support, we've been able to make a real difference in 
-              children's lives and communities.
+             Through the Aaron and Huri Ministry, we have made significant strides in supporting children and churches
             </p>
           </div>
 
@@ -113,7 +141,7 @@ const Index = () => {
               <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">4</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">7</div>
               <div className="text-xl text-gray-600">Children Supported</div>
             </div>
 
@@ -121,8 +149,8 @@ const Index = () => {
               <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <BookOpen className="w-10 h-10 text-white" />
               </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">4</div>
-              <div className="text-xl text-gray-600">Schools Partnered</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">40+</div>
+              <div className="text-xl text-gray-600">Churches we cleaned</div>
             </div>
 
             <div className="text-center">
@@ -143,8 +171,7 @@ const Index = () => {
             Join Us in Making a Difference
           </h2>
           <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
-            Your support helps us continue our mission of supporting children's education 
-            and maintaining clean, welcoming church environments.
+           Your partnership helps pastors remain focused on God’s work while we shoulder practical burdens—school fees and church care—together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">

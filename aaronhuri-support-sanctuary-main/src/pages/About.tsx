@@ -54,7 +54,7 @@ const About = () => {
             </h1>
           </div>
           <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Aaron and Huri Ministry is strengthen, support and maintain the work of God in the hands of church leaders
+            Rooted in Exodus 17:12, we stand beside pastors like Aaron and Hur stood with Moses—strengthening weary hands so God’s work advances.
           </p>
         </div>
       </section>
@@ -67,23 +67,17 @@ const About = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Aaron and Huri Ministry was founded with a simple yet powerful vision: 
-                  to support pastors and their communities in two essential ways.
+                  Our calling flows from Exodus 17:12—when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
+                  In that same spirit, we come alongside pastors so the banner of the Lord remains lifted high.
                 </p>
                 <p>
-                  Through the hand of Aaron, we support children's education by paying 
-                  school fees for families who cannot afford them. We believe every child 
-                  deserves access to quality education, regardless of their family's 
-                  financial situation.
+                  One hand lifts through education: we cover school fees for pastors’ children so shepherds can lead without the weight of worry.
                 </p>
                 <p>
-                  Through the hand of Huri, we maintain clean and welcoming church 
-                  environments. A clean church reflects our respect for God's house and 
-                  creates a dignified space for worship and community gatherings.
+                  The other hand lifts through church care: we clean and prepare God’s house so worship is dignified and welcoming.
                 </p>
                 <p>
-                  Together, these two pillars of our ministry work to strengthen 
-                  communities, support families, and create lasting positive change.
+                  Together, these two hands uphold weary arms—strengthening leaders, blessing families, and honoring the Lord.
                 </p>
               </div>
             </div>
@@ -173,15 +167,15 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="flex items-center justify-center space-x-3">
               <Mail className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">info@aaronhuriministries.org</span>
+              <span className="text-gray-700">aaronhur1@gmail.com</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
               <Phone className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">+1 (555) 123-4567</span>
+              <span className="text-gray-700">+(250) 785-715-059</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
               <MapPin className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">Burundi, Africa</span>
+              <span className="text-gray-700">Rwanda, Africa</span>
             </div>
           </div>
 

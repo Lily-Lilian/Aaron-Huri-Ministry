@@ -21,8 +21,7 @@ const Contact = () => {
             </h1>
           </div>
           <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            We'd love to hear from you. Whether you want to learn more about our work, 
-            support our mission, or get involved, we're here to help.
+              We’d love to connect. If God is leading you to help “hold up the hands” of pastors through giving, prayer, or service reach out below.
           </p>
         </div>
       </section>
@@ -123,7 +122,7 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg text-cyan-600 font-semibold">
-                      info@aaronhuriministries.org
+                      Aaronhur1@gmail.com
                     </p>
                   </CardContent>
                 </Card>
@@ -144,7 +143,7 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg text-cyan-600 font-semibold">
-                      +1 (555) 123-4567
+                      +(250) 785-715-059
                     </p>
                   </CardContent>
                 </Card>
@@ -165,7 +164,7 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg text-cyan-600 font-semibold">
-                      Burundi, Africa
+                      Rwanda, Africa
                     </p>
                   </CardContent>
                 </Card>
@@ -177,23 +176,14 @@ const Contact = () => {
                         <Clock className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-xl text-gray-900">Office Hours</CardTitle>
-                        <CardDescription className="text-gray-600">
-                          When we're available
-                        </CardDescription>
+                        <CardTitle className="text-xl text-gray-900">Ways you can support us</CardTitle>
                       </div>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <p className="text-gray-700">
-                        <span className="font-semibold">Monday - Friday:</span> 9:00 AM - 5:00 PM
-                      </p>
-                      <p className="text-gray-700">
-                        <span className="font-semibold">Saturday:</span> 10:00 AM - 2:00 PM
-                      </p>
-                      <p className="text-gray-700">
-                        <span className="font-semibold">Sunday:</span> Closed
+                        <span className="font-semibold">MTN Momo: 0781434943(Jackline)</span>
                       </p>
                     </div>
                   </CardContent>
@@ -221,7 +211,7 @@ const Contact = () => {
             <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
               Make a Donation
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
+            <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
               Learn More
             </Button>
           </div>

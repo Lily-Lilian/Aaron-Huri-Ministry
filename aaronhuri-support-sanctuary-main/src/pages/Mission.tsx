@@ -58,8 +58,7 @@ const Mission = () => {
             </h1>
           </div>
           <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            We support pastors in two essential ways: paying children's school fees and 
-            cleaning churches. Our dual approach strengthens communities and creates lasting change.
+            As in Exodus 17:12, when Aaron and Hur steadied Moses’ hands, we steady pastors through two graces: covering their children’s school fees and caring for God’s house.
           </p>
         </div>
       </section>
@@ -70,8 +69,7 @@ const Mission = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Dual Approach</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our mission addresses two critical needs in communities: education access and 
-              clean worship spaces. Together, these create a foundation for stronger communities.
+              Our mandate lifts two burdens: education access for pastors’ children and clean, dignified worship spaces—so the shepherds can shepherd.
             </p>
           </div>
 
@@ -123,8 +121,7 @@ const Mission = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Identify Need</h3>
               <p className="text-gray-600 leading-relaxed">
-                We work with pastors and communities to identify children who need 
-                educational support and churches that need cleaning services.
+                We listen to local pastors to discern needs—children requiring school fees and churches needing care.
               </p>
             </div>
 
@@ -134,8 +131,7 @@ const Mission = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Provide Support</h3>
               <p className="text-gray-600 leading-relaxed">
-                We directly pay school fees to schools and provide cleaning services 
-                to churches, ensuring transparency and accountability.
+                We pay school fees directly to schools and serve churches through cleaning, with transparency and accountability.
               </p>
             </div>
 
@@ -145,8 +141,7 @@ const Mission = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Monitor Progress</h3>
               <p className="text-gray-600 leading-relaxed">
-                We track children's educational progress and maintain clean church 
-                environments, ensuring lasting positive impact.
+                We follow up—tracking children’s schooling and upholding clean sanctuaries—so the impact endures.
               </p>
             </div>
           </div>
