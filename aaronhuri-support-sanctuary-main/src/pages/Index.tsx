@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Users, BookOpen, Star, ArrowRight, Play, ExternalLink } from "lucide-react";
+import { Heart, Users, BookOpen, Star, ArrowRight, ExternalLink } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
 
 const Index = () => {
   const [showContinueButton, setShowContinueButton] = useState(false);
+  const [mobileVideoFallback, setMobileVideoFallback] = useState(false);
+  const [desktopVideoFallback, setDesktopVideoFallback] = useState(false);
 
   useEffect(() => {
     // Show the continue watching button after 10 seconds
@@ -24,13 +26,29 @@ const Index = () => {
         <div className="relative h-[100svh] overflow-hidden">
           {/* Background video */}
           <div className="absolute inset-0">
-            <iframe
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[200%] pointer-events-none"
-              src="https://www.youtube.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&start=77&loop=1&playlist=KTvxHapBHDk"
-              title="Aaron and Huri Ministry Background"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+            {mobileVideoFallback ? (
+              <iframe
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[200%] pointer-events-none"
+                src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&start=77&loop=1&playlist=KTvxHapBHDk&iv_load_policy=3&disablekb=1&fs=0"
+                title="Aaron and Hur Ministry Background"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            ) : (
+              <video
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[200%] object-cover pointer-events-none"
+                src="/ministry-video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/placeholder.svg"
+                onError={() => setMobileVideoFallback(true)}
+              />
+            )}
             <div className="absolute inset-0 bg-black/20" />
             <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           </div>
@@ -39,12 +57,12 @@ const Index = () => {
           <div className="relative z-10 h-full flex items-center">
             <div className="px-4 sm:px-6">
               <div className="max-w-[92%]">
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-3 drop-shadow-md">
+              <h1 className="text-4xl sm:text-5xl font-semibold text-white mb-3 drop-shadow-md">
                 Serving God by Serving
                 <span className="text-cyan-300"> Others</span>
               </h1>
-              <p className="text-base sm:text-lg text-white/90 mb-4 sm:mb-6 leading-relaxed drop-shadow">
-                Rooted in Exodus 17:12, Aaron and Huri Ministry exists to “hold up the hands” of pastors so the work of God continues with strength.
+              <p className="text-base sm:text-lg text-white/90 mb-4 sm:mb-6 leading-relaxed drop-shadow font-medium">
+                Rooted in Exodus 17:12, Aaron and Hur Ministry exists to “hold up the hands” of pastors so the work of God continues with strength.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link to="/contact">
@@ -69,16 +87,16 @@ const Index = () => {
       </section>
 
       {/* Hero Section - Desktop/Tablet */}
-      <section className="relative hidden md:block py-24 bg-white overflow-hidden">
+      <section className="relative hidden md:block py-24 bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-5xl md:text-6xl font-semibold text-[hsl(var(--foreground))] mb-6">
                 Serving God by Serving
                 <span className="text-cyan-600"> Others</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Rooted in Exodus 17:12, Aaron and Huri Ministry exists to “hold up the hands” of pastors so the work of God continues with strength.
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+                Rooted in Exodus 17:12, Aaron and Hur Ministry exists to “hold up the hands” of pastors so the work of God continues with strength.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
@@ -94,26 +112,39 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&start=77"
-                  title="Aaron and Huri Ministry"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl relative">
+                {desktopVideoFallback ? (
+                  <iframe
+                    className="absolute top-[-32px] left-0 w-full h-[115%] pointer-events-none"
+                    src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&start=77&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+                    title="Aaron and Hur Ministry"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src="/ministry-video.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/placeholder.svg"
+                    onError={() => setDesktopVideoFallback(true)}
+                  />
+                )}
 
                 {/* Continue watching overlay (desktop/tablet only) */}
                 {showContinueButton && (
                   <div className="absolute inset-0 bg-black/60 hidden md:flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <Play className="w-8 h-8 text-white ml-1" />
-                      </div>
                       <h3 className="text-2xl font-bold text-white mb-4">Continue Watching</h3>
                       <p className="text-cyan-100 mb-6 max-w-sm">
-                        Watch more inspiring content from Aaron and Huri Ministry on YouTube
+                        Watch more inspiring content from Aaron and Hur Ministry on YouTube
                       </p>
                       <a
                         href="https://youtube.com/@ahministrytv4742?feature=shared"
@@ -134,7 +165,7 @@ const Index = () => {
       </section>
 
       {/* Mission Overview */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
@@ -142,6 +173,45 @@ const Index = () => {
               Like Aaron and Hur who steadied Moses’ hands (Exodus 17:12), we steady pastors through two graces: 
               covering school fees for their children and caring for God’s house by cleaning churches.
             </p>
+          </div>
+
+          {/* Our Story */}
+          <div className="mb-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="lg:col-span-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Born from prayer and the picture of Exodus 17:12, Aaron & Hur Ministry began with a
+                simple conviction: when pastors grow weary, family and church must lift their hands.
+                What started with a few acts of service has grown into a movement of support children
+                funded for school and churches cared for with dignity.
+              </p>
+            </div>
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">Jesus is Our Lead Story</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  We are a Jesus ministry. Our work flows from worship and ends with people meeting Jesus.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">The Gospel is Central</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Everything we do is because of what Jesus has already done. Grace fuels generosity.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">Worship is a Lifestyle</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  We clean, give, and serve as worship. Excellence and compassion are our posture.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">Generosity is Normal</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Because we freely received, we freely give—time, resources, and care for God’s house.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -180,12 +250,12 @@ const Index = () => {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Impact</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-             Through the Aaron and Huri Ministry, we have made significant strides in supporting children and churches
+             Through the Aaron and Hur Ministry, we have made significant strides in supporting children and churches
             </p>
           </div>
 
@@ -224,12 +294,14 @@ const Index = () => {
             Join Us in Making a Difference
           </h2>
           <p className="text-lg md:text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
-           Your partnership helps pastors remain focused on God’s work while we shoulder practical burdens—school fees and church care—together.
+           Your partnership helps pastors remain focused on God’s work while we shoulder practical burdens school fees and church care together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
-              Support Our Mission
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
+                Support Our Mission
+              </Button>
+            </Link>
             <Link to="/children">
               <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
                 Meet Our Children

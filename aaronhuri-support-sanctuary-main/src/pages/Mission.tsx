@@ -29,47 +29,32 @@ const Mission = () => {
     }
   ];
 
-  const impactStories = [
-    {
-      name: "Aimé Carine",
-      age: 6,
-      story: "Thanks to your support, Aimé Carine can attend school regularly without worrying about fees. She's now in Primary 1 and loves learning.",
-      school: "Collette de Brandt"
-    },
-    {
-      name: "Faraja Francine",
-      age: 6,
-      story: "Faraja Francine's family was struggling with school fees. Now she can focus on her studies and dreams of becoming a teacher.",
-      school: "Hope Academy"
-    }
-  ];
-
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
             <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
               <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
+            <h1 className="text-4xl md:text-6xl font-semibold text-[hsl(var(--foreground))]">
               Our Mission
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
             As in Exodus 17:12, when Aaron and Hur steadied Moses’ hands, we steady pastors through two graces: covering their children’s school fees and caring for God’s house.
           </p>
         </div>
       </section>
 
       {/* Mission Overview */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dual Approach</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our mandate lifts two burdens: education access for pastors’ children and clean, dignified worship spaces—so the shepherds can shepherd.
+              Our mandate lifts two burdens: education access for pastors’ children and clean, dignified worship spaces so the shepherds can shepherd.
             </p>
           </div>
 
@@ -121,7 +106,7 @@ const Mission = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Identify Need</h3>
               <p className="text-gray-600 leading-relaxed">
-                We listen to local pastors to discern needs—children requiring school fees and churches needing care.
+                We listen to local pastors to discern needs children requiring school fees and churches needing care.
               </p>
             </div>
 
@@ -141,46 +126,9 @@ const Mission = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Monitor Progress</h3>
               <p className="text-gray-600 leading-relaxed">
-                We follow up—tracking children’s schooling and upholding clean sanctuaries—so the impact endures.
+                We follow up tracking children’s schooling and upholding clean sanctuaries so the impact endures.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Stories */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Impact Stories</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real stories from children whose lives have been changed through your support.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {impactStories.map((story, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
-                <CardHeader>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Users className="w-7 h-7 md:w-8 md:h-8 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-gray-900">{story.name}</CardTitle>
-                      <CardDescription className="text-cyan-600 font-semibold">
-                        {story.age} years old • {story.school}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 text-lg leading-relaxed">
-                    {story.story}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -199,7 +147,7 @@ const Mission = () => {
             <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
               Support Our Mission
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
+            <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
               Learn More
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>

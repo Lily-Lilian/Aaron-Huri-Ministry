@@ -29,13 +29,13 @@ const About = () => {
 
   const team = [
     {
-      name: "Aaron",
-      role: "Founder & Director",
+      name: "Ishimiwe Samuel",
+      role: "Founder",
       description: "Leading our mission to support children's education and church communities."
     },
     {
-      name: "Huri",
-      role: "Co-Founder & Operations",
+      name: "Tonny Nkurunziza",
+      role: "Co-Founder",
       description: "Overseeing our church cleaning initiatives and community outreach programs."
     }
   ];
@@ -43,31 +43,31 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
             <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
               <Heart className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
+            <h1 className="text-4xl md:text-6xl font-semibold text-[hsl(var(--foreground))]">
               About Our Ministry
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Rooted in Exodus 17:12, we stand beside pastors like Aaron and Hur stood with Moses—strengthening weary hands so God’s work advances.
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
+            Rooted in Exodus 17:12, we stand beside pastors like Aaron and Hur stood with Moses strengthening weary hands so God’s work advances.
           </p>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Story</h2>
+              <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
                 <p>
-                  Our calling flows from Exodus 17:12—when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
+                  Our calling flows from Exodus 17:12 when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
                   In that same spirit, we come alongside pastors so the banner of the Lord remains lifted high.
                 </p>
                 <p>
@@ -77,7 +77,7 @@ const About = () => {
                   The other hand lifts through church care: we clean and prepare God’s house so worship is dignified and welcoming.
                 </p>
                 <p>
-                  Together, these two hands uphold weary arms—strengthening leaders, blessing families, and honoring the Lord.
+                  Together, these two hands uphold weary arms strengthening leaders, blessing families, and honoring the Lord.
                 </p>
               </div>
             </div>
@@ -93,11 +93,11 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Values</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
               These core values guide everything we do and shape how we serve our community.
             </p>
           </div>
@@ -123,11 +123,11 @@ const About = () => {
       </section>
 
       {/* Our Team */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Leadership</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Leadership</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
               Meet the dedicated leaders who guide our ministry and inspire our mission.
             </p>
           </div>
@@ -156,10 +156,10 @@ const About = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Get in Touch</h2>
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-medium">
             We'd love to hear from you. Whether you want to learn more about our work, 
             support our mission, or get involved, we're here to help.
           </p>
