@@ -46,14 +46,14 @@ const About = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
-            <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
-              <Heart className="w-10 h-10 text-white" />
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
+              <Heart className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
               About Our Ministry
             </h1>
           </div>
-          <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Rooted in Exodus 17:12, we stand beside pastors like Aaron and Hur stood with Moses—strengthening weary hands so God’s work advances.
           </p>
         </div>
@@ -64,7 +64,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
                   Our calling flows from Exodus 17:12—when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
@@ -84,7 +84,7 @@ const About = () => {
             <div className="relative">
               <div className="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="w-full h-full bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center">
-                  <Heart className="w-32 h-32 text-cyan-600" />
+                  <Heart className="w-24 h-24 md:w-32 md:h-32 text-cyan-600" />
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ const About = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               These core values guide everything we do and shape how we serve our community.
             </p>
@@ -106,8 +106,8 @@ const About = () => {
             {values.map((value, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <value.icon className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <value.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                   </div>
                   <CardTitle className="text-xl text-gray-900">{value.title}</CardTitle>
                 </CardHeader>
@@ -126,7 +126,7 @@ const About = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Leadership</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Leadership</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the dedicated leaders who guide our ministry and inspire our mission.
             </p>
@@ -136,8 +136,8 @@ const About = () => {
             {team.map((member, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <CardHeader className="text-center">
-                  <div className="w-24 h-24 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <Users className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Users className="w-10 h-10 md:w-12 md:h-12 text-white" />
                   </div>
                   <CardTitle className="text-2xl text-gray-900">{member.name}</CardTitle>
                   <CardDescription className="text-lg text-cyan-600 font-semibold">

@@ -50,14 +50,14 @@ const Mission = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
-            <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
-              <Target className="w-10 h-10 text-white" />
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
+              <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
               Our Mission
             </h1>
           </div>
-          <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             As in Exodus 17:12, when Aaron and Hur steadied Moses’ hands, we steady pastors through two graces: covering their children’s school fees and caring for God’s house.
           </p>
         </div>
@@ -67,7 +67,7 @@ const Mission = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Dual Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dual Approach</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our mandate lifts two burdens: education access for pastors’ children and clean, dignified worship spaces—so the shepherds can shepherd.
             </p>
@@ -77,8 +77,8 @@ const Mission = () => {
             {approaches.map((approach, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <approach.icon className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <approach.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                   </div>
                   <CardTitle className="text-2xl text-gray-900">{approach.title}</CardTitle>
                 </CardHeader>
@@ -107,7 +107,7 @@ const Mission = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">How We Work</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How We Work</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our process is simple, transparent, and focused on making the greatest impact 
               in children's lives and church communities.
@@ -115,9 +115,9 @@ const Mission = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <div className="text-2xl font-bold text-white">1</div>
+              <div className="text-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="text-xl md:text-2xl font-bold text-white">1</div>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Identify Need</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -125,9 +125,9 @@ const Mission = () => {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <div className="text-2xl font-bold text-white">2</div>
+              <div className="text-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="text-xl md:text-2xl font-bold text-white">2</div>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Provide Support</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -135,9 +135,9 @@ const Mission = () => {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <div className="text-2xl font-bold text-white">3</div>
+              <div className="text-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="text-xl md:text-2xl font-bold text-white">3</div>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Monitor Progress</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -152,7 +152,7 @@ const Mission = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Impact Stories</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Impact Stories</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Real stories from children whose lives have been changed through your support.
             </p>
@@ -163,8 +163,8 @@ const Mission = () => {
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <CardHeader>
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Users className="w-8 h-8 text-white" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
+                      <Users className="w-7 h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <div>
                       <CardTitle className="text-xl text-gray-900">{story.name}</CardTitle>
@@ -188,10 +188,10 @@ const Mission = () => {
       {/* Call to Action */}
       <section className="py-24 bg-cyan-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Join Our Mission
           </h2>
-          <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
             Your support helps us continue our work of supporting children's education 
             and maintaining clean church environments. Every contribution makes a difference.
           </p>
