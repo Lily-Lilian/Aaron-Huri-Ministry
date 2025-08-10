@@ -195,23 +195,23 @@ const Contact = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 sm:py-20 md:py-24 bg-cyan-600">
+      <section className="py-16 sm:py-20 md:py-24" style={{ backgroundColor: "#e2e3da" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
-            <Heart className="w-12 h-12 md:w-16 md:h-16 text-white mr-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <Heart className="w-12 h-12 md:w-16 md:h-16 text-cyan-600 mr-6" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Support Our Mission
             </h2>
           </div>
-          <p className="text-lg md:text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
             Your support helps us continue our work of supporting children's education 
             and maintaining clean church environments. Every contribution makes a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold">
+            <Button size="lg" className="bg-cyan-600 text-white hover:bg-cyan-700 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold">
               Make a Donation
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg">
+            <Button size="lg" variant="outline" className="border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg">
               Learn More
             </Button>
           </div>

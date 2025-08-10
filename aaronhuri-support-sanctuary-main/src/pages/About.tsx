@@ -1,7 +1,11 @@
 import { Heart, Users, BookOpen, Star, MapPin, Phone, Mail } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import samuelImg from "@/Images/WhatsApp Image 2025-08-09 at 12.28.22.jpeg";
+import storyImg from "@/Images/WhatsApp Image 2025-08-10 at 16.22.45.jpeg";
 import Layout from "@/components/layout/Layout";
+import Reveal from "@/components/Reveal";
 
 const About = () => {
   const values = [
@@ -27,18 +31,14 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Ishimiwe Samuel",
-      role: "Founder",
-      description: "Leading our mission to support children's education and church communities."
-    },
-    {
-      name: "Tonny Nkurunziza",
-      role: "Co-Founder",
-      description: "Overseeing our church cleaning initiatives and community outreach programs."
-    }
-  ];
+  // Leadership profile (single featured leader)
+  const founder = {
+    name: "Samuel Ishimwe",
+    role: "Founder",
+    description:
+      "Samuel carries the God-given vision to uphold pastors and their families paying school fees for their children and caring for God’s house so shepherds can lead without the weight of worry.",
+    image: samuelImg,
+  };
 
   return (
     <Layout>
@@ -63,8 +63,11 @@ const About = () => {
       <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Story</h2>
+            <Reveal className="order-2 lg:order-1">
+              <h2 className="text-xl md:text-3xl font-bold text-[hsl(var(--foreground))] mb-6">
+                We are: For God. For pastors.
+                <br className="hidden md:block" /> For the church. For the world.
+              </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
                 <p>
                   Our calling flows from Exodus 17:12 when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
@@ -80,14 +83,21 @@ const About = () => {
                   Together, these two hands uphold weary arms strengthening leaders, blessing families, and honoring the Lord.
                 </p>
               </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center">
-                  <Heart className="w-24 h-24 md:w-32 md:h-32 text-cyan-600" />
-                </div>
+            </Reveal>
+            <Reveal className="relative order-1 lg:order-2" delayMs={100}>
+              <div className="mb-6">
+                <h3 className="text-5xl md:text-5xl font-extrabold text-[hsl(var(--foreground))] tracking-tight">Our Story</h3>
               </div>
-            </div>
+              <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={storyImg}
+                  alt="Our Story"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -95,16 +105,17 @@ const About = () => {
       {/* Our Values */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Values</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
               These core values guide everything we do and shape how we serve our community.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-center">
+              <Reveal key={index} delayMs={index * 80}>
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-center">
                 <CardHeader>
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <value.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
@@ -117,40 +128,45 @@ const About = () => {
                   </CardDescription>
                 </CardContent>
               </Card>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Team */}
+      {/* Our Leadership (single featured leader) */}
       <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Leadership</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
-              Meet the dedicated leaders who guide our ministry and inspire our mission.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image block: show second on mobile */}
+            <div className="order-2 lg:order-1">
+              <div className="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
+                <img
+                  src={founder.image}
+                  alt={`${founder.name} - ${founder.role}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain object-center"
+                />
+              </div>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
-                <CardHeader className="text-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <Users className="w-10 h-10 md:w-12 md:h-12 text-white" />
-                  </div>
-                  <CardTitle className="text-2xl text-gray-900">{member.name}</CardTitle>
-                  <CardDescription className="text-lg text-cyan-600 font-semibold">
-                    {member.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 text-lg leading-relaxed text-center">
-                    {member.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            {/* Text right styled like the reference */}
+            <Reveal className="order-1 lg:order-2">
+              <p className="text-sm md:text-base font-medium tracking-wide text-gray-600 mb-4">Our Leadership</p>
+              <h2 className="text-[40px] leading-tight md:text-6xl md:leading-[1.05] font-extrabold text-[hsl(var(--foreground))] mb-6">
+                {founder.name}
+              </h2>
+              <p className="text-cyan-700 font-semibold mb-5">{founder.role}</p>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+                {founder.description}
+              </p>
+              <Link to="/contact">
+                <Button size="lg" className="rounded-full bg-cyan-600 hover:bg-cyan-700 text-white px-6 md:px-8 py-3 md:py-4 font-semibold">
+                  Support the Vision
+                </Button>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

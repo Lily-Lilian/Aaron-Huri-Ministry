@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Users, BookOpen, Star, ArrowRight, ExternalLink } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import Reveal from "@/components/Reveal";
 import { useState, useEffect } from "react";
 
 const Index = () => {
@@ -29,7 +30,7 @@ const Index = () => {
             {mobileVideoFallback ? (
               <iframe
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[200%] pointer-events-none"
-                src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&start=77&loop=1&playlist=KTvxHapBHDk&iv_load_policy=3&disablekb=1&fs=0"
+                src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&start=77&loop=1&playlist=KTvxHapBHDk&iv_load_policy=3&disablekb=1&fs=0&showinfo=0&autohide=1&cc_load_policy=0"
                 title="Aaron and Hur Ministry Background"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -89,7 +90,7 @@ const Index = () => {
       {/* Hero Section - Desktop/Tablet */}
       <section className="relative hidden md:block py-24 bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <Reveal className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-semibold text-[hsl(var(--foreground))] mb-6">
                 Serving God by Serving
@@ -116,7 +117,7 @@ const Index = () => {
                 {desktopVideoFallback ? (
                   <iframe
                     className="absolute top-[-32px] left-0 w-full h-[115%] pointer-events-none"
-                    src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&start=77&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+                    src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&start=77&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&showinfo=0&autohide=1&cc_load_policy=0&loop=1&playlist=KTvxHapBHDk"
                     title="Aaron and Hur Ministry"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -160,20 +161,20 @@ const Index = () => {
                 )}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Mission Overview */}
       <section className="py-24 bg-[hsl(var(--background))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Like Aaron and Hur who steadied Moses’ hands (Exodus 17:12), we steady pastors through two graces: 
               covering school fees for their children and caring for God’s house by cleaning churches.
             </p>
-          </div>
+          </Reveal>
 
           {/* Our Story */}
           <div className="mb-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -187,12 +188,12 @@ const Index = () => {
               </p>
             </div>
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+              <Reveal className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm" delayMs={80}>
                 <h4 className="font-semibold text-gray-900 mb-2">Jesus is Our Lead Story</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   We are a Jesus ministry. Our work flows from worship and ends with people meeting Jesus.
                 </p>
-              </div>
+              </Reveal>
               <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                 <h4 className="font-semibold text-gray-900 mb-2">The Gospel is Central</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -208,13 +209,14 @@ const Index = () => {
               <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                 <h4 className="font-semibold text-gray-900 mb-2">Generosity is Normal</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Because we freely received, we freely give—time, resources, and care for God’s house.
+                  Because we freely received, we freely give time, resources, and care for God’s house.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Reveal>
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
               <CardHeader>
               <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mb-4">
@@ -229,7 +231,9 @@ const Index = () => {
                 </CardDescription>
               </CardContent>
             </Card>
+            </Reveal>
 
+            <Reveal delayMs={120}>
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
               <CardHeader>
                 <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mb-4">
@@ -245,6 +249,7 @@ const Index = () => {
                 </CardDescription>
               </CardContent>
             </Card>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -288,22 +293,22 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-cyan-600">
+      <section className="py-24" style={{ backgroundColor: "#e2e3da" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Join Us in Making a Difference
           </h2>
-          <p className="text-lg md:text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
            Your partnership helps pastors remain focused on God’s work while we shoulder practical burdens school fees and church care together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
+              <Button size="lg" className="bg-cyan-600 text-white hover:bg-cyan-700 px-8 py-4 text-lg font-semibold">
                 Support Our Mission
               </Button>
             </Link>
             <Link to="/children">
-              <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
+              <Button size="lg" variant="outline" className="border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-8 py-4 text-lg">
                 Meet Our Children
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>

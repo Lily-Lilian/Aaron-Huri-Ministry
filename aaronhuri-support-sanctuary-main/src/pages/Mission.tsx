@@ -134,20 +134,20 @@ const Mission = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-cyan-600">
+      <section className="py-24" style={{ backgroundColor: "#e2e3da" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Join Our Mission
           </h2>
-          <p className="text-lg md:text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
             Your support helps us continue our work of supporting children's education 
             and maintaining clean church environments. Every contribution makes a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 text-lg font-semibold">
+            <Button size="lg" className="bg-cyan-600 text-white hover:bg-cyan-700 px-8 py-4 text-lg font-semibold">
               Support Our Mission
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-cyan-600 hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg">
+            <Button size="lg" variant="outline" className="border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-8 py-4 text-lg">
               Learn More
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
