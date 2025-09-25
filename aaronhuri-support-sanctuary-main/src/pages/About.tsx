@@ -1,9 +1,9 @@
-import { Heart, Users, BookOpen, Star, MapPin, Phone, Mail } from "lucide-react";
+import { Heart, Users, BookOpen, HandHeart, MapPin, Phone, Mail } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import samuelImg from "@/Images/WhatsApp Image 2025-08-09 at 12.28.22.jpeg";
-import storyImg from "@/Images/WhatsApp Image 2025-08-10 at 16.22.45.jpeg";
+import samuelImg from "@/Images/President.jpeg";
+import storyImg from "@/Images/AHM.jpeg";
 import Layout from "@/components/layout/Layout";
 import Reveal from "@/components/Reveal";
 
@@ -11,197 +11,240 @@ const About = () => {
   const values = [
     {
       icon: Heart,
-      title: "Compassion",
-      description: "We serve with genuine care and empathy for every child and community we support."
+      title: "Supporting Leaders",
+      description: "We support church leaders by meeting practical needs that can distract from their ministry calling."
     },
     {
       icon: BookOpen,
-      title: "Education",
-      description: "We believe education is the foundation for a brighter future and lasting change."
+      title: "Training & Development",
+      description: "We provide training and development opportunities for pastors and their families to strengthen their ministry."
+    },
+    {
+      icon: HandHeart,
+      title: "Practical Care",
+      description: "We offer hands-on support through children's education funding and church maintenance services."
     },
     {
       icon: Users,
-      title: "Community",
-      description: "We strengthen communities by supporting both children and church environments."
-    },
-    {
-      icon: Star,
-      title: "Excellence",
-      description: "We strive for excellence in everything we do, from education support to church maintenance."
+      title: "Building Community",
+      description: "We connect church leaders and their families for mutual support, encouragement, and partnership."
     }
   ];
 
-  // Leadership profile (single featured leader)
   const founder = {
     name: "Samuel Ishimwe",
-    role: "Founder",
+    role: "Founder & Vision Carrier",
     description:
-      "Samuel carries the God-given vision to uphold pastors and their families paying school fees for their children and caring for God’s house so shepherds can lead without the weight of worry.",
+      "Samuel carries the God-given vision to strengthen the work of God by supporting church leaders. His heart is to ensure that practical needs don't distract servants of God from their calling to advance the Kingdom.",
     image: samuelImg,
   };
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-8">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan-600 rounded-full flex items-center justify-center mr-6 shadow-lg">
-              <Heart className="w-8 h-8 md:w-10 md:h-10 text-white" />
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <div
+              className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full mb-6 shadow-lg ring-1 ring-gray-300 bg-gray-900"
+              style={{
+                backgroundImage: 'url(/logo.png)',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center'
+              }}
+            >
+              <span className="sr-only">Aaron & Hur Ministry Logo</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-semibold text-[hsl(var(--foreground))]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               About Our Ministry
             </h1>
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              Supporting church leaders so they can focus on what matters most — 
+              advancing God's Kingdom in their communities.
+            </p>
           </div>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
-            Rooted in Exodus 17:12, we stand beside pastors like Aaron and Hur stood with Moses strengthening weary hands so God’s work advances.
-          </p>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-24 bg-[hsl(var(--background))]">
+      {/* Our Story Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <Reveal className="order-2 lg:order-1">
-              <h2 className="text-xl md:text-3xl font-bold text-[hsl(var(--foreground))] mb-6">
-                We are: For God. For pastors.
-                <br className="hidden md:block" /> For the church. For the world.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                Our Story
               </h2>
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
+              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Our calling flows from Exodus 17:12 when Moses’ hands grew weary, Aaron and Hur stood beside him and held them up.
-                  In that same spirit, we come alongside pastors so the banner of the Lord remains lifted high.
+                  Our mission began with a simple observation: many faithful church leaders 
+                  struggle with practical needs that pull them away from their calling. 
+                  Just as Aaron and Hur held up Moses' hands during battle, we come alongside 
+                  pastors to provide the support they need.
                 </p>
                 <p>
-                  One hand lifts through education: we cover school fees for pastors’ children so shepherds can lead without the weight of worry.
+                  We've seen how covering a child's school fees can free a pastor to focus 
+                  on ministry. We've witnessed how maintaining God's house through church 
+                  cleaning allows leaders to concentrate on shepherding their flock.
                 </p>
                 <p>
-                  The other hand lifts through church care: we clean and prepare God’s house so worship is dignified and welcoming.
-                </p>
-                <p>
-                  Together, these two hands uphold weary arms strengthening leaders, blessing families, and honoring the Lord.
+                  Through training, practical support, and building networks of mutual care, 
+                  we ensure that the Lord's work flourishes in local communities. 
+                  We believe that when we support the ministry, we support our own calling.
                 </p>
               </div>
-            </Reveal>
-            <Reveal className="relative order-1 lg:order-2" delayMs={100}>
-              <div className="mb-6">
-                <h3 className="text-5xl md:text-5xl font-extrabold text-[hsl(var(--foreground))] tracking-tight">Our Story</h3>
-              </div>
-              <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden shadow-xl">
                 <img
                   src={storyImg}
-                  alt="Our Story"
+                  alt="Aaron and Hur Ministry team working together"
                   loading="lazy"
-                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Our Values */}
-      <section className="py-24 bg-background">
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Our Values</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
-              These core values guide everything we do and shape how we serve our community.
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              How We Serve
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              These core principles guide our approach to supporting church leaders 
+              and strengthening God's work in local communities.
             </p>
-          </Reveal>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {values.map((value, index) => (
-              <Reveal key={index} delayMs={index * 80}>
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-center">
-                <CardHeader>
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <value.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl text-gray-900">{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-              </Reveal>
+              <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 lg:p-8 hover:shadow-lg transition-all duration-300 text-center group">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                  <value.icon className="w-6 h-6 md:w-7 md:h-7 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Leadership (single featured leader) */}
-      <section className="py-24 bg-[hsl(var(--background))]">
+      {/* Leadership Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image block: show second on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <div className="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
+              <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-xl aspect-[3/4] lg:aspect-[4/5]">
                 <img
                   src={founder.image}
                   alt={`${founder.name} - ${founder.role}`}
                   loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-contain object-center"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
-            {/* Text right styled like the reference */}
-            <Reveal className="order-1 lg:order-2">
-              <p className="text-sm md:text-base font-medium tracking-wide text-gray-600 mb-4">Our Leadership</p>
-              <h2 className="text-[40px] leading-tight md:text-6xl md:leading-[1.05] font-extrabold text-[hsl(var(--foreground))] mb-6">
+            <div className="order-1 lg:order-2 text-white">
+              <p className="text-blue-400 font-medium mb-4">Our Leadership</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 {founder.name}
               </h2>
-              <p className="text-cyan-700 font-semibold mb-5">{founder.role}</p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+              <p className="text-blue-400 text-xl font-semibold mb-6">{founder.role}</p>
+              <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-2xl">
                 {founder.description}
               </p>
               <Link to="/contact">
-                <Button size="lg" className="rounded-full bg-cyan-600 hover:bg-cyan-700 text-white px-6 md:px-8 py-3 md:py-4 font-semibold">
-                  Support the Vision
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
+                  Partner With Us
                 </Button>
               </Link>
-            </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200">
+            <div
+              className="w-16 h-16 rounded-full mx-auto mb-6 ring-1 ring-gray-300 bg-gray-900"
+              style={{
+                backgroundImage: 'url(/logo.png)',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center'
+              }}
+            >
+              <span className="sr-only">Aaron & Hur Ministry Logo</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our Mission
+            </h2>
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              To strengthen the work of God by supporting church leaders and meeting 
+              the practical needs that can distract from their calling to advance the Kingdom.
+            </p>
+            <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-600">
+              <p className="text-blue-800 font-medium text-lg italic">
+                "When Moses' hands grew weary, Aaron and Hur held up his hands..."
+              </p>
+              <p className="text-blue-600 font-semibold mt-2">Exodus 17:12</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-background">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-semibold text-[hsl(var(--foreground))] mb-6">Get in Touch</h2>
-          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-medium">
-            We'd love to hear from you. Whether you want to learn more about our work, 
-            support our mission, or get involved, we're here to help.
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Connect With Us
+          </h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            Whether you want to learn more about our work, support our mission, 
+            or explore partnership opportunities, we'd love to hear from you.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="flex items-center justify-center space-x-3">
-              <Mail className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">aaronhur1@gmail.com</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="flex flex-col items-center p-6 bg-gray-50 rounded-xl">
+              <Mail className="w-8 h-8 text-blue-600 mb-3" />
+              <p className="text-gray-600 text-sm mb-2">Email us</p>
+              <a href="mailto:aaronhur1@gmail.com" className="text-gray-900 font-semibold hover:text-blue-600 transition-colors">
+                aaronhur1@gmail.com
+              </a>
             </div>
-            <div className="flex items-center justify-center space-x-3">
-              <Phone className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">+(250) 785-715-059</span>
+            <div className="flex flex-col items-center p-6 bg-gray-50 rounded-xl">
+              <Phone className="w-8 h-8 text-blue-600 mb-3" />
+              <p className="text-gray-600 text-sm mb-2">Call us</p>
+              <a href="tel:+250785715059" className="text-gray-900 font-semibold hover:text-blue-600 transition-colors">
+                +(250) 785-715-059
+              </a>
             </div>
-            <div className="flex items-center justify-center space-x-3">
-              <MapPin className="w-6 h-6 text-cyan-600" />
-              <span className="text-gray-700">Rwanda, Africa</span>
+            <div className="flex flex-col items-center p-6 bg-gray-50 rounded-xl">
+              <MapPin className="w-8 h-8 text-blue-600 mb-3" />
+              <p className="text-gray-600 text-sm mb-2">Visit us</p>
+              <p className="text-gray-900 font-semibold">Rwanda, East Africa</p>
             </div>
           </div>
 
-          <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg">
-            Contact Us
-          </Button>
+          <Link to="/contact">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
+              Get In Touch
+            </Button>
+          </Link>
         </div>
       </section>
     </Layout>
   );
 };
 
-export default About; 
+export default About;
