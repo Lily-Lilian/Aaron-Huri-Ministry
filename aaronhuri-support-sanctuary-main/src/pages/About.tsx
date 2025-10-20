@@ -60,7 +60,7 @@ const About = () => {
               About Our Ministry
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-              Supporting church leaders so they can focus on what matters most — 
+              Supporting church leaders so they can focus on what matters most
               advancing God's Kingdom in their communities.
             </p>
           </div>

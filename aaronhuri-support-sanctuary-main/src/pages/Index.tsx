@@ -1,17 +1,70 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Users, BookOpen, HandHeart, ArrowRight, ExternalLink, Church, Baby } from "lucide-react";
+import { Heart, Users, BookOpen, HandHeart, ArrowRight, ExternalLink, Church, Baby, Volume2, VolumeX } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Reveal from "@/components/Reveal";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Index = () => {
   const [showContinueButton, setShowContinueButton] = useState(false);
-  const [mobileVideoFallback, setMobileVideoFallback] = useState(false);
-  const [desktopVideoFallback, setDesktopVideoFallback] = useState(false);
+  const [mobileVideoFallback, setMobileVideoFallback] = useState(true);
+  const [desktopVideoFallback, setDesktopVideoFallback] = useState(true);
   const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
   const [desktopVideoLoading, setDesktopVideoLoading] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [viewport, setViewport] = useState<"mobile" | "desktop" | null>(null);
+
+  const mobilePlayerRef = useRef<HTMLIFrameElement | null>(null);
+  const desktopPlayerRef = useRef<HTMLIFrameElement | null>(null);
+
+  const videoId = "6r5H7E2G3Ys";
+
+  const buildYouTubeSrc = (id: string) =>
+    `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=${id}&iv_load_policy=3&disablekb=1&fs=0&showinfo=0&autohide=1&cc_load_policy=0&enablejsapi=1`;
+
+  const postYouTubeCommand = (iframe: HTMLIFrameElement | null, func: string) => {
+    if (!iframe || !iframe.contentWindow) return;
+    iframe.contentWindow.postMessage(
+      JSON.stringify({ event: "command", func, args: [] }),
+      "*"
+    );
+  };
+
+  const toggleMute = () => {
+    setIsMuted((prev) => {
+      const next = !prev;
+      // Best-effort control without reloading iframes
+      if (next) {
+        postYouTubeCommand(mobilePlayerRef.current, "mute");
+        postYouTubeCommand(desktopPlayerRef.current, "mute");
+      } else {
+        postYouTubeCommand(mobilePlayerRef.current, "unMute");
+        postYouTubeCommand(mobilePlayerRef.current, "playVideo");
+        postYouTubeCommand(desktopPlayerRef.current, "unMute");
+        postYouTubeCommand(desktopPlayerRef.current, "playVideo");
+      }
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px)');
+    const onChange = () => setViewport(media.matches ? 'desktop' : 'mobile');
+    onChange();
+    if (media.addEventListener) {
+      media.addEventListener('change', onChange);
+      return () => media.removeEventListener('change', onChange);
+    } else {
+      // Fallback for older browsers
+      // @ts-ignore
+      media.addListener(onChange);
+      return () => {
+        // @ts-ignore
+        media.removeListener(onChange);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     // Show the continue watching button after 30 seconds
@@ -25,14 +78,17 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Mobile: video as background with overlay content */}
+      {viewport === 'mobile' && (
       <section className="relative block md:hidden">
         <div className="relative h-screen overflow-hidden">
           {/* Background video */}
           <div className="absolute inset-0">
             {mobileVideoFallback ? (
               <iframe
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[200%] pointer-events-none"
-                src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&start=77&loop=1&playlist=KTvxHapBHDk&iv_load_policy=3&disablekb=1&fs=0&showinfo=0&autohide=1&cc_load_policy=0"
+                className="absolute top-1/2 left-1/2 h-[160%] w-[220%] pointer-events-none"
+                style={{ transform: 'translate(-40%, -60%)' }}
+                src={buildYouTubeSrc(videoId)}
+                ref={mobilePlayerRef}
                 title="Aaron and Hur Ministry Background"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -77,6 +133,17 @@ const Index = () => {
               )
             )}
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/60" />
+            <div className="absolute bottom-4 right-4 z-20 pointer-events-auto">
+              <Button
+                size="sm"
+                variant="outline"
+                className="bg-black/60 hover:bg-black/80 text-white w-10 h-10 p-0 rounded-full border border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                onClick={toggleMute}
+                aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </Button>
+            </div>
             <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             
             {/* Mobile loading indicator */}
@@ -91,16 +158,13 @@ const Index = () => {
           </div>
 
           {/* Overlay content */}
-          <div className="relative z-10 h-full flex items-center px-4">
-            <div className="w-full max-w-sm mx-auto text-center">
-              <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-sm mb-6">
-                "When Moses' hands grew weary, Aaron and Hur held up his hands..." Exodus 17:12
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <div className="relative z-10 h-full flex items-end justify-start px-4 pb-6">
+            <div className="w-full max-w-sm mr-auto text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
                 Serving God by Serving
-                <span className="block text-yellow-400"> Others</span>
+                <span className="block text-yellow-400 text-2xl sm:text-3xl"> Others</span>
               </h1>
-              <p className="text-lg text-white/90 mb-8 leading-relaxed">
+              <p className="text-base text-white/90 mb-8 leading-relaxed">
                 Supporting church leaders and their families through practical care and partnership in ministry.
               </p>
               <div className="flex flex-col gap-3">
@@ -123,123 +187,104 @@ const Index = () => {
           </div>
         </div>
       </section>
+      )}
 
-      {/* Hero Section - Desktop/Tablet */}
-      <section className="hidden md:block py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-             <div className="lg:col-span-6 space-y-6 lg:space-y-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+      {/* Hero Section - Desktop/Tablet (video background with left overlay) */}
+      {viewport === 'desktop' && (
+      <section className="hidden md:block relative h-[80vh] lg:h-[85vh] overflow-hidden">
+        {/* Background video */}
+        <div className="absolute inset-0">
+          {desktopVideoFallback ? (
+            <>
+              <iframe
+                className="absolute top-[-80px] left-0 w-full h-[140%] pointer-events-none"
+                src={buildYouTubeSrc(videoId)}
+                ref={desktopPlayerRef}
+                title="Aaron and Hur Ministry"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                loading="eager"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+              <div className="absolute bottom-6 right-6 z-20 pointer-events-auto">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="bg-black/60 hover:bg-black/80 text-white w-10 h-10 p-0 rounded-full border border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                  onClick={toggleMute}
+                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                >
+                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </Button>
+              </div>
+            </>
+          ) : (
+            !desktopVideoFallback ? (
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/AHM.mp4"
+                autoPlay
+                loop
+                playsInline
+                muted
+                preload="auto"
+                poster="/placeholder.svg"
+                onError={(e) => {
+                  console.error('Desktop video error:', e);
+                  setDesktopVideoFallback(true);
+                }}
+                onLoadStart={() => {
+                  setDesktopVideoLoading(true);
+                }}
+                onCanPlay={() => {
+                  setDesktopVideoLoading(false);
+                }}
+              />
+            ) : (
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/ministry-video.mp4"
+                autoPlay
+                loop
+                playsInline
+                muted
+                preload="metadata"
+                poster="/placeholder.svg"
+              />
+            )
+          )}
+          <div className="absolute inset-0 bg-slate-900/60" />
+        </div>
+
+        {/* Overlay content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-8 w-full flex justify-end">
+            <div className="max-w-2xl">
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Serving God by Serving
-                <span className="text-blue-600"> Others</span>
+                <span className="text-blue-400"> Others</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
+              <p className="text-2xl text-white/90 mt-6 leading-relaxed">
                 Supporting church leaders and their families through practical care, training, and partnership in ministry.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex gap-4 pt-8">
                 <Link to="/contact">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
                     Support Our Work
                   </Button>
                 </Link>
                 <Link to="/mission">
-                  <Button size="lg" variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold">
+                  <Button size="lg" variant="outline" className="border-2 border-blue-200 hover:bg-white/10 px-8 py-4 text-lg font-semibold">
                     Our Mission
                   </Button>
                 </Link>
               </div>
             </div>
-            
-            <div className="lg:col-span-6">
-              <div className="relative animate-fade-in">
-                <div className="aspect-[4/3] lg:aspect-[16/10] bg-gray-100 rounded-2xl overflow-hidden shadow-2xl relative group hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] border-4 border-white/20">
-                  {desktopVideoFallback ? (
-                    <iframe
-                      className="absolute top-[-32px] left-0 w-full h-[115%] pointer-events-none"
-                      src="https://www.youtube-nocookie.com/embed/KTvxHapBHDk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&start=77&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&showinfo=0&autohide=1&cc_load_policy=0&loop=1&playlist=KTvxHapBHDk"
-                      title="Aaron and Hur Ministry"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      loading="eager"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
-                  ) : (
-                    !desktopVideoFallback ? (
-                      <video
-                        className="absolute inset-0 w-full h-full object-cover"
-                        src="/AHM.mp4"
-                        autoPlay
-                        loop
-                        playsInline
-                        muted
-                        preload="auto"
-                        poster="/placeholder.svg"
-                        onError={(e) => {
-                          console.error('Desktop video error:', e);
-                          setDesktopVideoFallback(true);
-                        }}
-                        onLoadStart={() => {
-                          console.log('Desktop video loading started');
-                          setDesktopVideoLoading(true);
-                        }}
-                        onCanPlay={() => {
-                          console.log('Desktop video can play');
-                          setDesktopVideoLoading(false);
-                        }}
-                      />
-                    ) : (
-                      <video
-                        className="absolute inset-0 w-full h-full object-cover"
-                        src="/ministry-video.mp4"
-                        autoPlay
-                        loop
-                        playsInline
-                        muted
-                        preload="metadata"
-                        poster="/placeholder.svg"
-                      />
-                    )
-                  )}
-
-                  {/* Removed video badge indicator */}
-
-                  {/* Loading indicator */}
-                  {desktopVideoLoading && !desktopVideoFallback && (
-                    <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                        <p className="text-gray-600 font-medium">Loading video...</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Continue watching overlay */}
-                  {showContinueButton && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/60 flex items-center justify-center">
-                      <div className="text-center p-8">
-                        <h3 className="text-2xl font-bold text-white mb-3">Continue Watching</h3>
-                        <p className="text-white/90 mb-6 text-lg">
-                          More videos from our ministry work
-                        </p>
-                        <a
-                          href="https://youtube.com/@ahministrytv4742?feature=shared"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                        >
-                          <ExternalLink className="w-5 h-5 mr-2" />
-                          Watch on YouTube
-                        </a>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
+      )}
 
       {/* What We Do Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">

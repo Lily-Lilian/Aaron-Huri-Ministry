@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="clipCircle">
+      <circle cx="32" cy="32" r="26" />
+    </clipPath>
+  </defs>
+  <!-- Rounded square dark tile to match navbar badge -->
+  <rect width="64" height="64" rx="12" fill="#0b0b0b"/>
+  <!-- White ring like the navbar ring -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+  <circle cx="32" cy="32" r="26.5" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+  <!-- Place the site logo.png inside, clipped to a circle for clean edges -->
+  <g clip-path="url(#clipCircle)">
+    <rect x="6" y="6" width="52" height="52" fill="#0b0b0b"/>
+    <image href="/logo.png" x="10" y="10" width="44" height="44" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+</svg>
+
